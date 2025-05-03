@@ -36,5 +36,5 @@ vim.schedule(function()
   require "mappings"
 end)
 
-
 vim.o.relativenumber = true
+vim.o.clipboard = "unnamedplus"
