@@ -38,3 +38,25 @@ end)
 
 vim.o.relativenumber = true
 vim.o.clipboard = "unnamedplus"
+
+vim.api.nvim_create_autocmd("filetype", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+    vim.opt_local.softtabstop = 4
+    vim.opt_local.expandtab = true
+  end,
+})
+
+vim.api.nvim_create_autocmd("filetype", {
+  pattern = {"jsx", "tsx", "html"},
+  callback = function()
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.tabstop = 2
+    vim.opt_local.softtabstop = 2
+    vim.opt_local.expandtab = true
+  end,
+})
+
+vim.keymap.set('n', '<C-m>', '<cmd>lua vim.diagnostic.open_float()<CR>')
