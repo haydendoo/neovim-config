@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd("filetype", {
 })
 
 vim.api.nvim_create_autocmd("filetype", {
-  pattern = {"jsx", "tsx", "html"},
+  pattern = {"jsx", "tsx", "html", "lua"},
   callback = function()
     vim.opt_local.shiftwidth = 2
     vim.opt_local.tabstop = 2
