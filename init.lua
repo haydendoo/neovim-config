@@ -47,7 +47,7 @@ vim.opt.smarttab = true
 
 -- Explicit overwrite for some languages
 vim.api.nvim_create_autocmd("filetype", {
-  pattern = {"python"},
+  pattern = {"python", "py"},
   callback = function()
     vim.opt_local.shiftwidth = 4
     vim.opt_local.tabstop = 4
