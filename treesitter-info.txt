@@ -309,4 +309,4 @@ yuck               [✗] not installed
 zathurarc          [✗] not installed
 zig                [✗] not installed
 ziggy              [✗] not installed
-ziggy_schema       [✗] not installed
+ziggy_schema       [✗] not insalled

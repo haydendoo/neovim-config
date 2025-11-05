@@ -75,12 +75,12 @@ vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
 vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
 -- LSPConfig
-local lspconfig = require('lspconfig')
-
-lspconfig.pyright.setup({
+vim.lsp.config("pyright", {
   on_attach = function(client, _)
     -- Disable Pyright formatting capability
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
   end,
 })
+
+vim.lsp.enable({"pyright"})
