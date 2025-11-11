@@ -45,25 +45,6 @@ vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.opt.smarttab = true
 
--- Explicit overwrite for some languages
-vim.api.nvim_create_autocmd("filetype", {
-  pattern = {"python", "py"},
-  callback = function()
-    vim.opt_local.shiftwidth = 4
-    vim.opt_local.tabstop = 4
-    vim.opt_local.softtabstop = 4
-  end,
-})
-
-vim.api.nvim_create_autocmd("filetype", {
-  pattern = {"jsx", "tsx", "html", "lua"},
-  callback = function()
-    vim.opt_local.shiftwidth = 2
-    vim.opt_local.tabstop = 2
-    vim.opt_local.softtabstop = 2
-  end,
-})
-
 vim.keymap.set('n', '<C-m>', '<cmd>lua vim.diagnostic.open_float()<CR>')
 
 -- Harpoon
@@ -73,14 +54,3 @@ harpoon:setup()
 
 vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
 vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-
--- LSPConfig
-vim.lsp.config("pyright", {
-  on_attach = function(client, _)
-    -- Disable Pyright formatting capability
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentRangeFormattingProvider = false
-  end,
-})
-
-vim.lsp.enable({"pyright"})
